@@ -1,0 +1,31 @@
+{
+	"name": "api",
+	"version": "0.0.0",
+	"private": true,
+	"type": "module",
+	"imports": {
+		"#root/*": "./src/*"
+	},
+	"scripts": {
+		"db:push": "drizzle-kit push",
+		"db:studio": "drizzle-kit studio --verbose",
+		"start": "node --watch src/index.ts",
+		"test": "node --test --watch"
+	},
+	"dependencies": {
+		"drizzle-orm": "1.0.0-beta.22",
+		"express": "^5.2.1",
+		"express-file-routing": "3.2.0-alpha.0",
+		"passport": "^0.7.0",
+		"pino-http": "^11.0.0",
+		"postgres": "^3.4.9",
+		"valibot": "^1.4.1"
+	},
+	"devDependencies": {
+		"@repo/ts-config": "workspace:*",
+		"@types/express": "^5.0.6",
+		"@types/passport": "^1.0.17",
+		"drizzle-kit": "1.0.0-beta.22",
+		"pino-pretty": "^13.1.3"
+	}
+}

@@ -1,0 +1,8 @@
+{
+	"extends": "@repo/ts-config/base.json",
+	"compilerOptions": {
+		"erasableSyntaxOnly": true,
+		"module": "nodenext",
+		"target": "esnext"
+	}
+}
