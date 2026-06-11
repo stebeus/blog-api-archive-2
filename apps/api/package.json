@@ -19,7 +19,7 @@
 		"passport": "^0.7.0",
 		"pino-http": "^11.0.0",
 		"postgres": "^3.4.9",
-		"valibot": "^1.4.1"
+		"zod": "^4.4.3"
 	},
 	"devDependencies": {
 		"@repo/ts-config": "workspace:*",

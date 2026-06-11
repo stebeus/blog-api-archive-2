@@ -41,9 +41,9 @@ importers:
       postgres:
         specifier: ^3.4.9
         version: 3.4.9
-      valibot:
-        specifier: ^1.4.1
-        version: 1.4.1(typescript@6.0.3)
+      zod:
+        specifier: ^4.4.3
+        version: 4.4.3
     devDependencies:
       '@repo/ts-config':
         specifier: workspace:*
@@ -1548,10 +1548,10 @@ snapshots:
   valibot@1.4.1(typescript@6.0.3):
     optionalDependencies:
       typescript: 6.0.3
+    optional: true
 
   vary@1.1.2: {}
 
   wrappy@1.0.2: {}
 
-  zod@4.4.3:
-    optional: true
+  zod@4.4.3: {}

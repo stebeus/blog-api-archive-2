@@ -1,6 +1,6 @@
 import { env, loadEnvFile } from 'node:process';
 
-import * as v from 'valibot';
+import * as z from 'zod';
 
 import { isErrnoException } from '#root/utils/errs.ts';
 
@@ -13,9 +13,9 @@ try {
 	if (isErrnoException(err) && err.code !== 'ENOENT') throw err;
 }
 
-const schema = v.intersect([appSchema, dbSchema]);
-const { success, issues, output } = v.safeParse(schema, env);
+const schema = z.intersection(appSchema, dbSchema);
+const { data, error, success } = z.safeParse(schema, env);
 
-if (!success) throw new Error(v.summarize(issues));
+if (!success) throw new Error(z.prettifyError(error));
 
-export const config = output;
+export const config = data;

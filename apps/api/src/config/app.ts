@@ -1,15 +1,16 @@
-import * as v from 'valibot';
+import * as z from 'zod';
 
 const logLevels = ['trace', 'debug', 'info', 'warn', 'error', 'fatal'];
 
-export const appSchema = v.pipe(
-	v.object({
-		LOG_LEVEL: v.optional(v.picklist(logLevels), 'info'),
-		NODE_ENV: v.optional(v.string()),
-		PORT: v.optional(v.number(), 3000),
-	}),
-	v.transform((input) => ({
-		...input,
-		LOG_LEVEL: input.NODE_ENV === 'production' ? logLevels[2] : logLevels[0],
-	})),
-);
+export const appSchema = z
+	.object({
+		LOG_LEVEL: z.enum(logLevels).optional(),
+		NODE_ENV: z.string().optional(),
+		PORT: z.int().optional().default(3000),
+	})
+	.transform((shape) => {
+		const logLevel =
+			shape.LOG_LEVEL ?? (shape.NODE_ENV === 'production' ? logLevels[2] : logLevels[0]);
+
+		return { ...shape, LOG_LEVEL: logLevel };
+	});

@@ -1,7 +1,7 @@
-import * as v from 'valibot';
+import * as z from 'zod';
 
 const pgConnection = /(postgres(?:ql)?):\/\/(?:([^@\s]+)@)?([^/\s]+)(?:\/(\w+))?(?:\?(.+))?/;
 
-export const dbSchema = v.object({
-	DB_URL: v.pipe(v.string(), v.url(), v.regex(pgConnection)),
+export const dbSchema = z.object({
+	DB_URL: z.url().regex(pgConnection),
 });
