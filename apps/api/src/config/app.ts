@@ -1,6 +1,6 @@
 import * as z from 'zod';
 
-const logLevels = ['trace', 'debug', 'info', 'warn', 'error', 'fatal'];
+const logLevels = ['trace', 'debug', 'info', 'warn', 'error', 'fatal'] as const;
 
 export const appSchema = z
 	.object({
