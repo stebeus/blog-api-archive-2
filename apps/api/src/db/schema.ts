@@ -16,6 +16,7 @@ export const posts = pgTable('posts', {
 	title: varchar({ length: 128 }).notNull(),
 	content: text().notNull(),
 	...votes,
+	isPublic: boolean().notNull(),
 	...timestamps,
 	authorId: integer().references(() => users.id),
 });
