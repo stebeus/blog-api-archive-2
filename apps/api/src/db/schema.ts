@@ -13,7 +13,7 @@ export const users = pgTable('users', {
 
 export const posts = pgTable('posts', {
 	id,
-	title: varchar({ length: 128 }).notNull(),
+	title: varchar({ length: 50 }).notNull(),
 	content: text().notNull(),
 	...votes,
 	isPublic: boolean().notNull(),
