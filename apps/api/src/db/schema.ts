@@ -18,3 +18,12 @@ export const posts = pgTable('posts', {
 	...timestamps,
 	authorId: integer().references(() => users.id),
 });
+
+export const comments = pgTable('comments', {
+	id,
+	author: varchar({ length: 100 }),
+	content: text().notNull(),
+	...votes,
+	...timestamps,
+	postId: integer().references(() => posts.id),
+});
