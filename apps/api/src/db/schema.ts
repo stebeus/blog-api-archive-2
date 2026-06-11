@@ -1,4 +1,4 @@
-import { integer, pgTable, text, varchar } from 'drizzle-orm/pg-core';
+import { boolean, integer, pgTable, text, varchar } from 'drizzle-orm/pg-core';
 
 import { id, timestamps, votes } from './mixins.ts';
 
@@ -7,6 +7,7 @@ export const users = pgTable('users', {
 	name: text().notNull(),
 	email: text().notNull().unique(),
 	password: varchar({ length: 128 }).notNull(),
+	isAdmin: boolean().default(false),
 	...timestamps,
 });
 
