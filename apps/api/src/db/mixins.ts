@@ -1,10 +1,13 @@
+import { sql } from 'drizzle-orm';
 import { integer, timestamp } from 'drizzle-orm/pg-core';
 
 export const id = integer().primaryKey().generatedAlwaysAsIdentity();
 
 export const timestamps = {
 	createdAt: timestamp().defaultNow(),
-	updatedAt: timestamp().$onUpdate(() => new Date()),
+	updatedAt: timestamp()
+		.default(sql`NULL`)
+		.$onUpdate(() => new Date()),
 };
 
 export const votes = {
