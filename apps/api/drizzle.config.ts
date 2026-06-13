@@ -1,6 +1,6 @@
 import { defineConfig } from 'drizzle-kit';
 
-import { config } from './src/config/index.ts';
+import { config } from './src/config.ts';
 
 export default defineConfig({
 	casing: 'snake_case',

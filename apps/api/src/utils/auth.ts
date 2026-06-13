@@ -11,7 +11,7 @@ export const hash = async (password: string) => {
 	return `${salt}:${(derivedKey as Buffer).toHex()}`;
 };
 
-export const verify = async (password: string, hash: string) => {
+export const compare = async (password: string, hash: string) => {
 	const [salt, key] = hash.split(':');
 
 	const buffer = Buffer.from(key, 'hex');

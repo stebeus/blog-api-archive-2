@@ -1,6 +1,6 @@
 import { drizzle } from 'drizzle-orm/postgres-js';
 
-import { config } from '#root/config/index.ts';
+import { config } from '#root/config.ts';
 import { relations } from '#root/db/relations.ts';
 
 export const db = drizzle({
